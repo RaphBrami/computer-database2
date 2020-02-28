@@ -1,0 +1,18 @@
+[24-févr.-2020 10:56:28,037] DEBUG [main]       Connexion.java:  24 :
+ java.sql.SQLException: No suitable driver found for url
+[24-févr.-2020 11:00:55,603] DEBUG [main]       Connexion.java:  24 :
+ java.sql.SQLException: No suitable driver found for url
+[24-févr.-2020 11:09:21,035] DEBUG [main]       Connexion.java:  24 :
+ java.sql.SQLException: No suitable driver found for url
+[24-févr.-2020 11:32:41,053] DEBUG [main]       Connexion.java:  25 :
+ java.sql.SQLException: No suitable driver found for url
+[24-févr.-2020 11:33:04,177] DEBUG [main]       Connexion.java:  25 :
+ java.sql.SQLException: No suitable driver found for url
+[24-févr.-2020 11:33:08,768] DEBUG [main]       Connexion.java:  25 :
+ java.sql.SQLException: No suitable driver found for url
+[25-févr.-2020 11:42:59,883] DEBUG [main]       Connexion.java:  25 :
+ java.sql.SQLException: No suitable driver found for url
+[25-févr.-2020 15:54:04,155] DEBUG [main]       Connexion.java:  25 :
+ java.sql.SQLException: No suitable driver found for url
+[25-févr.-2020 15:54:08,740] DEBUG [main]       Connexion.java:  25 :
+ java.sql.SQLException: No suitable driver found for url
