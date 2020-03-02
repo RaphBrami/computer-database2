@@ -16,3 +16,5 @@
  java.sql.SQLException: No suitable driver found for url
 [25-févr.-2020 15:54:08,740] DEBUG [main]       Connexion.java:  25 :
  java.sql.SQLException: No suitable driver found for url
+[28-févr.-2020 16:56:08,278] INFO  [main]           Log4J.java:  13 :
+ erreur de connection

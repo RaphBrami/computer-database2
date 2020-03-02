@@ -6,11 +6,12 @@ import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
+import com.excilys.log4j.Log4J;
+
 
 public class Connexion {
 	
 	private Connection conn; 
-	private static Logger logger = Logger.getLogger(Connexion.class);
 	
     public void connect() throws ClassNotFoundException {
         String user = "user";
@@ -22,7 +23,10 @@ public class Connexion {
             System.out.println("Connexion ok");
             Class.forName("com.mysql.jdbc.Driver");
         }catch(SQLException e){
-           logger.debug(e);
+
+        	Log4J.afficherMessage("erreur de connection");
+          
+           
         } 
         
     }
@@ -38,7 +42,7 @@ public class Connexion {
             System.out.println("Connexion ok");
             Class.forName("com.mysql.jdbc.Driver");
         }catch(SQLException e){
-           logger.debug(e);
+          Log4J.afficherMessage("erreur de connection");;
         } 
         
     }
@@ -49,9 +53,10 @@ public class Connexion {
     public void  closeConn(){
     
     	try {
-    		conn.close();
+    		if(conn != null) {
+    		conn.close();}
     	} catch(SQLException e ){	
-    		logger.debug(e);
+    		Log4J.afficherMessage("erreur de fermeture de connection");
     	}   
     }
 }

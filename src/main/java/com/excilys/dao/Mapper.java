@@ -13,15 +13,17 @@ import java.util.Optional;
 
 import org.apache.log4j.Logger;
 
+import com.excilys.log4j.Log4J;
 import com.excilys.modeles.Computer;
 
 public class Mapper {
-	private static Logger logger = Logger.getLogger(CompanyDAO.class);
-	public Computer getCompterMapper(Connexion conn, String affichage,int id )	{	
+
+	public Computer getCompterMapper(Connexion conn, String affichage,int id ) throws ClassNotFoundException	{
 	
 	Computer computer = new Computer();
 	try {	
-
+	
+	conn.connect();
 	PreparedStatement preparedStatement = conn.getConn().prepareStatement(affichage);
 	preparedStatement.setInt(1, id);
 	ResultSet generateComputer = preparedStatement.executeQuery();
@@ -36,8 +38,8 @@ public class Mapper {
 	
 	} catch (SQLException e) {
 		
-		logger.debug(e);
-
+		Log4J.afficherMessage(" erreur ");
+		
 		}finally {
 			
 		conn.closeConn();	
@@ -54,7 +56,7 @@ public class Mapper {
 			preparedStatement.close();
 			return true;
 		} catch (SQLException e) {
-			logger.debug(e);
+			Log4J.afficherMessage("erreur");
 			return false;
 		} finally {	
 			conn.closeConn();
@@ -75,7 +77,7 @@ public class Mapper {
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 		} catch (SQLException e) {
-			logger.debug(e);
+			Log4J.afficherMessage("erreur");
 			} finally {
 				
 			conn.closeConn();
@@ -98,7 +100,7 @@ public class Mapper {
 			return true;
 		}catch (SQLException e) {
 			
-			logger.debug(e);
+			Log4J.afficherMessage("erreur");
 			return false;
 			}finally {
 				
@@ -107,14 +109,13 @@ public class Mapper {
        }
     
 	
-	public static List<Computer> select_allMapper(Connexion conn , String select_All ) {
+	public static List<Computer> select_allMapper(Connexion conn , String select_All ) throws ClassNotFoundException {
 		ArrayList<Computer> listcomp = new ArrayList<Computer>();
 		
 	try {
-		
+			conn.connect();
 			PreparedStatement preparedStatement = conn.getConn().prepareStatement(select_All);
 			ResultSet generateComputer = preparedStatement.executeQuery();
-			
 			while (generateComputer.next()) {
 				Computer computer = new Computer();
 				int id = generateComputer.getInt(1);
@@ -140,7 +141,7 @@ public class Mapper {
 		  
 		} catch (SQLException e) {
 			
-			logger.debug(e);
+			Log4J.afficherMessage("erreur");
 		
 			}finally {
 				
@@ -164,7 +165,7 @@ public class Mapper {
 			  
 			}catch (SQLException e) {
 				
-				logger.debug(e);
+				Log4J.afficherMessage("erreur");
 
 				}finally {
 
